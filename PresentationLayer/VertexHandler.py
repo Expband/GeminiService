@@ -17,7 +17,6 @@ class VertexHandler(Resource):
     def post(self):
 
         self.__request = request.get_json()
-        print(self.__request)
         try:
             if not self.__validator.validate(request=self.__request)['validation_status']:
                 self.__response = self.__v_interface.make_vertex_request(self.__request['request'])

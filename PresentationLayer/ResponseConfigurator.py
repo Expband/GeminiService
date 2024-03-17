@@ -7,6 +7,7 @@ class ResponseConfigurator:
     @dispatch(str, int)
     def generate_response(payload: str, status_code: int):
         response = make_response(jsonify({'response': f'{payload}'}), status_code)
+        response.headers['Access-Control-Allow-Origin'] = '*'
         return response
 
     @staticmethod
